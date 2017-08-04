@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/xmyxm/node-koa-h5#readme",
   "dependencies": {
-    "koa": "^2.3.0"
+    "easy-monitor": "^2.1.6",
+    "koa": "^2.3.0",
+    "koa-router": "^7.2.1"
   }
 }
