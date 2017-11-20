@@ -1,13 +1,16 @@
 "use strict";
-// module.exports = function * () {
-// 	return yield 'api : ' + Date.now()
-// }
 
 module.exports = async (ctx, next) => {
 	//console.log('page : ' + Date.now());
-	console.log(ctx);
-	ctx.body = JSON.stringify({ text: 'hello' });
+	console.log('取ctx主体： ' + JSON.stringify(ctx.request.body));
+	ctx.body = JSON.stringify({ text: ctx.request.body.text, content: ctx.request.body.content });
 }
+
+
+
+
+
+
 
 
 

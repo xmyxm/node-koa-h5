@@ -1,13 +1,14 @@
 const Router = require('koa-router');
+const koaBody = require('koa-body');
 const pathList = require('../config/router.js')
 const router = new Router();
 const print = require('../lib/printmsg.js')
 
 function add_rule(reg,method, rule) {
 	switch(method.toLowerCase()){
-		case 'get' : router.get(reg, rule);
-		case 'post' : router.post(reg, rule);
-		default : router.get(reg, rule);
+		case 'get' : router.get(reg, koaBody(), rule);
+		case 'post' : router.post(reg, koaBody(), rule);
+		default : router.get(reg, koaBody(), rule);
 	}
 }
 

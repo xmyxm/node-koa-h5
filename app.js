@@ -6,7 +6,7 @@ const controller = require('./controller/controller.js');
 // easyMonitor('node-koa-h5');
 
 
-console.log(typeof controller);
+//console.log(typeof controller);
 app.use(controller());
 app.listen(3000);
 

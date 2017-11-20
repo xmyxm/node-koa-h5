@@ -6,10 +6,17 @@
 </head>
 <body>
 	<form action="http://127.0.0.1:3000/postapi" method="post" >
-		<input type="submit" value="提交">
+		<input type="text" name="text" value="小明">
+		<input type="text" name="content" value="测试post请求">
+		<input type="submit" value="post数据提交">
+	</form>
+	<form action="http://127.0.0.1:3000/getapi" method="get" >
+		<input type="text" name="text" value="小明">
+		<input type="text" name="content" value="测试get请求">
+		<input type="submit" value="get数据提交">
 	</form>
 	</br>
-	<a href="http://127.0.0.1:3000/githubpage">进入github页面</a>
+	<a href="http://127.0.0.1:3000/githubpage">页面请求</a>
 </body>
 </html>
 
