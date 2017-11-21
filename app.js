@@ -21,6 +21,15 @@ app.use(cors({
   allowMethods: ['GET', 'POST', 'DELETE'],
   allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }));
+app.use(async (ctx, next) => {
+    const start = new Date()
+    await next()
+    const ms = new Date() - start
+    console.log(`请求状态监控 ${ctx.method} ${ctx.url} - ${ms}ms`)
+});
+app.on('error', function(err, ctx){
+    log.error('server error', err, ctx);
+});
 app.use(controller());
 app.listen(3000);
 
