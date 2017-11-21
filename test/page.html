@@ -3,20 +3,77 @@
 <head>
 	<meta charset="UTF-8">
 	<title>koa服务测试页面</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			padding: 10px;
+		}
+		a{
+			color: #229ffd;
+			text-decoration: none;
+			display: block;
+		}
+		form{
+			margin-bottom:10px; 
+		}
+		input{
+			height: 22px;
+			line-height: 22px;
+			display: inline-block;
+		}
+		input[type="submit"]{
+			padding: 2px 10px;
+			background: #FEAE1B;
+			height: 26px;
+			border: none;
+			color: #FFF;
+		}
+
+		#btn_get,#btn_post{
+			font-size: 14px;
+			line-height: 32px;
+			margin-right:10px;
+			background: #4cb0f9;
+			padding: 2px 10px;
+			border-radius: 4px;
+			color: #FFF;
+		}
+	</style>
 </head>
 <body>
 	<form action="http://127.0.0.1:3000/postapi" method="post" >
-		<input type="text" name="text" value="小明">
-		<input type="text" name="content" value="测试post请求">
-		<input type="submit" value="post数据提交">
+		<input type="text" name="text" value="小明" />
+		<input type="text" name="content" value="测试post请求"/>
+		<input type="submit" value="post数据提交"/>
 	</form>
 	<form action="http://127.0.0.1:3000/getapi" method="get" >
-		<input type="text" name="text" value="小明">
-		<input type="text" name="content" value="测试get请求">
-		<input type="submit" value="get数据提交">
+		<input type="text" name="text" value="小明" />
+		<input type="text" name="content" value="测试get请求" />
+		<input type="submit" value="get数据提交" />
 	</form>
 	</br>
 	<a href="http://127.0.0.1:3000/githubpage">页面请求</a>
+	</br>
+<div>
+	<bottom id = "btn_get">Ajax数据请求get</bottom>
+	<bottom id = "btn_post">Ajax数据请求post</bottom>
+</div>
+<script type="text/javascript">
+	document.getElementById('btn_get').addEventListener('click',function(){
+		$.getJSON('http://127.0.0.1:3000/getapi',{text:'ajax',content:'get'}, function (data) {
+		    alert(JSON.stringify(data))
+		})
+	})
+	document.getElementById('btn_post').addEventListener('click',function(){
+		$.post('http://127.0.0.1:3000/postapi',{text:'ajax',content:'get'}, function (data) {
+		    alert(JSON.stringify(data))
+		})
+	})
+</script>
 </body>
 </html>
 
